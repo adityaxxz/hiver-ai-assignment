@@ -13,8 +13,8 @@ Per incoming customer message:
 
 ```bash
 # 1. Clone and install (Python 3.10+)
-git clone <repo-url>
-cd hiver
+git clone https://github.com/adityaxxz/hiver-ai-assignment.git
+cd hiver-ai-assignment
 uv venv .venv && .venv\Scripts\activate  # Windows
 # or: source .venv/bin/activate  (Linux/macOS)
 uv pip install -r requirements.txt
@@ -23,9 +23,9 @@ uv pip install -r requirements.txt
 # Go to: https://www.kaggle.com/datasets/thoughtvector/customer-support-on-twitter
 # Download twcs.csv and place it at: data/raw/twcs.csv
 
-# 3. Set your Groq API key (free at console.groq.com)
-$env:GROQ_API_KEY = "your-key-here"  # PowerShell
-# or: export GROQ_API_KEY="your-key-here"  (bash)
+# 3. Create a .env file and set your Groq API key (free at console.groq.com)
+# Create a file named .env in the root directory and add:
+# GROQ_API_KEY=your-key-here
 
 # 4. Prepare data (~2 min)
 python run_pipeline.py prep
@@ -72,11 +72,11 @@ data/raw/twcs.csv
   -> run_pipeline.py       single CLI entrypoint (prep / run / sample / eval)
 ```
 
-**LLM:** Groq free tier (`meta-llama/llama-4-scout-17b-16e-instruct` for classify/escalate, `meta-llama/llama-4-maverick-17b-128e-instruct` for draft/judge). Direct API calls, no agent framework.
+**LLM:** Groq free tier (`openai/gpt-oss-20b` for classify/escalate, `openai/gpt-oss-120b` for draft/judge). Direct API calls, no agent framework.
 
 ## Findings Summary
 
-*(Populated after eval run — see `eval/results_summary.md`)*
+Please see `report.md` for full breakdown of LLM accuracy vs baselines, escalation false negatives, reply quality rubric scores, and our analysis of failure modes!
 
 ## Repo Structure
 
