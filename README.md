@@ -76,7 +76,7 @@ data/raw/twcs.csv
 
 ## Findings Summary
 
-Please see `report.md` for full breakdown of LLM accuracy vs baselines, escalation false negatives, reply quality rubric scores, and our analysis of failure modes!
+Please see [report.md](report.md) for full breakdown of LLM accuracy vs baselines, escalation false negatives, reply quality rubric scores, and our analysis of failure modes!
 
 ## Repo Structure
 

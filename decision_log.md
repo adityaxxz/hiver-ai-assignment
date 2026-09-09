@@ -25,8 +25,8 @@
 7. **Escalation is a hybrid rule+LLM policy, not a pure LLM decision.**
    Deterministic signals are cheap and auditable: `billing_subscription` and `account_access` always escalate (money and account security require humans); low classifier confidence (<0.70) escalates; strong negative sentiment keywords escalate. These signals are *fed into* the LLM as explicit context, and the LLM writes the reason sentence. This mirrors Hiver's own product philosophy: AI handles grunt work, humans stay in control of anything risky. A pure-LLM escalation call is opaque and impossible to tune without rewriting the prompt.
 
-8. **Used Groq free tier (OpenAI-compatible endpoint) with Llama 4 Scout for classify/escalate and Llama 4 Maverick for draft/judge.**
-   Cost/quality tradeoff: Scout (17B) is fast and sufficient for structured JSON classification/escalation. Maverick (17B-128e) produces better reasoning and prose for drafts and judge scores. Both stay within free-tier rate limits with a 1s sleep between calls.
+8. **Used Groq free tier (OpenAI-compatible endpoint) with `gpt-oss-20b` for classify/escalate and `gpt-oss-120b` for draft/judge.**
+   Cost/quality tradeoff: The 20b model is fast and sufficient for structured JSON classification/escalation. The 120b model produces better reasoning and prose for drafts and judge scores. Both stay within free-tier rate limits with retry backoff logic.
 
 9. **"Historically resolved" only means "the brand replied," not "the issue was actually fixed."**
    The dataset has no ground-truth resolution signal (no CSAT score, no "issue closed" flag). The cleaned pairs corpus is more precisely a "brand-replied" corpus. This limitation is explicit in the report's "what's misleading" section — not hidden in a footnote.
