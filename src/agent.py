@@ -11,7 +11,10 @@ import json
 import os
 import time
 
+from dotenv import load_dotenv
 from openai import OpenAI
+
+load_dotenv()  # ensure GROQ_API_KEY is available even when not invoked via run_pipeline.py
 
 # ---------------------------------------------------------------------------
 # LLM client (Groq, OpenAI-compatible)
@@ -24,7 +27,7 @@ def _get_client() -> OpenAI:
     if _client is None:
         _client = OpenAI(
             base_url="https://api.groq.com/openai/v1",
-            api_key=os.environ["GROQ_API_KEY"],
+            api_key=os.getenv("GROQ_API_KEY"),
         )
     return _client
 
@@ -32,8 +35,8 @@ def _get_client() -> OpenAI:
 # ---------------------------------------------------------------------------
 # Models
 # ---------------------------------------------------------------------------
-MODEL_FAST = "meta-llama/llama-4-scout-17b-16e-instruct"   # classify / escalate
-MODEL_SMART = "meta-llama/llama-4-maverick-17b-128e-instruct"  # draft / judge
+MODEL_FAST = "openai/gpt-oss-20b"   # classify / escalate
+MODEL_SMART = "openai/gpt-oss-120b"  # draft / judge
 
 # ---------------------------------------------------------------------------
 # Intent taxonomy (from PROJECT_CONTEXT.md §4)

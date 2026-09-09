@@ -4,3 +4,4 @@ scikit-learn>=1.4
 openai>=1.30
 scipy>=1.11
 tqdm>=4.66
+python-dotenv>=1.0

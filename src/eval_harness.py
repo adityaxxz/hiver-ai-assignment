@@ -275,17 +275,39 @@ def main(skip_llm: bool = False, judge_only: bool = False):
 
     EVAL_DIR.mkdir(exist_ok=True)
 
-    # Load training slice for simple baseline (all golden rows NOT in the eval subset,
-    # or if golden is small, use the full cleaned_pairs for retrieval-only training)
-    pairs = pd.read_parquet(Path("data/cleaned_pairs.parquet"))
+    ROWS_JSON = EVAL_DIR / "per_row_results.json"
 
-    # Train simple baseline on non-golden rows from pairs
-    # (pairs has no labels, so we use golden labels for LR training — note in report: small N)
+    # --judge-only: reload saved per-row results, skip all LLM inference
+    if judge_only:
+        if not ROWS_JSON.exists():
+            sys.exit(
+                "[eval] --judge-only requires eval/per_row_results.json from a prior full eval run.\n"
+                "Run without --judge-only first."
+            )
+        print("[eval] --judge-only: loading saved per-row results ...")
+        saved = json.loads(ROWS_JSON.read_text(encoding="utf-8"))
+        llm_rows = saved.get("llm_pipeline", [])
+        agreement = judge_vs_human_agreement(golden, llm_rows)
+
+        # Reload saved metrics and update agreement in-place
+        existing = json.loads(RESULTS_JSON.read_text(encoding="utf-8")) if RESULTS_JSON.exists() else {}
+        existing["agreement"] = agreement
+        RESULTS_JSON.write_text(json.dumps(existing, indent=2), encoding="utf-8")
+
+        print("\n=== Judge-vs-Human Agreement ===")
+        for dim, res in agreement.items():
+            if isinstance(res, dict) and "kappa" in res:
+                print(f"  {dim}: kappa={res['kappa']:.3f}, within-1={res['within_1_pct']:.1%} (n={res['n']})")
+            else:
+                print(f"  {dim}: {res}")
+        return
+
+    # Full eval run
+    pairs = pd.read_parquet(Path("data/cleaned_pairs.parquet"))
     train_golden = golden.sample(frac=0.5, random_state=42)
     eval_golden = golden.drop(train_golden.index)
 
     trivial = TrivialBaseline().fit(golden["true_intent"].tolist())
-
     simple = SimpleBaseline()
     simple.fit(train_golden["customer_message"].tolist(), train_golden["true_intent"].tolist())
     simple.load_retriever()
@@ -304,7 +326,7 @@ def main(skip_llm: bool = False, judge_only: bool = False):
             systems.append(("llm_pipeline", run_agent, True))
 
     for sys_name, predict_fn, use_judge in systems:
-        print(f"\n[eval] Running {sys_name} on {len(eval_golden)} golden examples …")
+        print(f"\n[eval] Running {sys_name} on {len(eval_golden)} golden examples ...")
         rows = run_system_on_golden(
             eval_golden, sys_name, predict_fn,
             use_llm_judge=(use_judge and not skip_llm and "GROQ_API_KEY" in os.environ),
@@ -312,7 +334,10 @@ def main(skip_llm: bool = False, judge_only: bool = False):
         all_results[sys_name] = rows
         all_metrics[sys_name] = compute_metrics(rows)
 
-    # Judge-vs-human agreement (uses LLM pipeline results if available)
+    # Save per-row results so --judge-only can reload them later (no re-running needed)
+    ROWS_JSON.write_text(json.dumps(all_results, indent=2), encoding="utf-8")
+    print(f"[eval] Saved per-row results -> {ROWS_JSON}")
+
     llm_rows = all_results.get("llm_pipeline", [])
     agreement = judge_vs_human_agreement(golden, llm_rows)
 
@@ -323,7 +348,6 @@ def main(skip_llm: bool = False, judge_only: bool = False):
     print(f"[eval] Saved {RESULTS_JSON}")
     write_markdown_summary(all_metrics, agreement, RESULTS_MD)
 
-    # Print quick summary
     for sys_name, m in all_metrics.items():
         print(
             f"\n{sys_name}: intent_acc={m['intent_accuracy']:.3f} "
@@ -335,6 +359,6 @@ def main(skip_llm: bool = False, judge_only: bool = False):
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument("--skip-llm", action="store_true", help="Skip LLM pipeline and judge calls")
-    parser.add_argument("--judge-only", action="store_true", help="Re-run judge on saved results")
+    parser.add_argument("--judge-only", action="store_true", help="Recompute judge-vs-human agreement from saved per-row results (fast, no LLM calls)")
     args = parser.parse_args()
     main(skip_llm=args.skip_llm, judge_only=args.judge_only)

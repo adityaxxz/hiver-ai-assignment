@@ -14,6 +14,9 @@ import json
 import os
 import sys
 from pathlib import Path
+from dotenv import load_dotenv
+
+load_dotenv()  # loads GROQ_API_KEY from .env into os.environ
 
 sys.path.insert(0, str(Path(__file__).parent / "src"))
 
@@ -74,7 +77,7 @@ def cmd_sample(args):
 
 def cmd_eval(args):
     from eval_harness import main as eval_main
-    eval_main(skip_llm=args.skip_llm)
+    eval_main(skip_llm=args.skip_llm, judge_only=getattr(args, "judge_only", False))
 
 
 def main():
@@ -99,6 +102,7 @@ def main():
     # eval
     p_eval = sub.add_parser("eval", help="Run full eval harness")
     p_eval.add_argument("--skip-llm", action="store_true")
+    p_eval.add_argument("--judge-only", action="store_true", help="Recompute judge-vs-human kappa from saved results (instant)")
     p_eval.set_defaults(func=cmd_eval)
 
     args = parser.parse_args()
