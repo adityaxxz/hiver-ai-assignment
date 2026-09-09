@@ -1,0 +1,102 @@
+[
+  {
+    "message": "how do i get to create a category for indigenous music? ntv artists lack a platform bc corporations lack inclusivity",
+    "intent": "error",
+    "confidence": 0.0,
+    "reply": "Error code: 404 - {'error': {'message': 'The model `meta-llama/llama-4-scout-17b-16e-instruct` does not exist or you do not have access to it.', 'type': 'invalid_request_error', 'code': 'model_not_found'}}",
+    "decision": {
+      "action": "escalate",
+      "reason": "Error code: 404 - {'error': {'message': 'The model `meta-llama/llama-4-scout-17b-16e-instruct` does not exist or you do not have access to it.', 'type': 'invalid_request_error', 'code': 'model_not_found'}}"
+    }
+  },
+  {
+    "message": "I am trying to reset my password but I never get a link. Not in spam, etc. anyideas? I do not see a support email to send details.",
+    "intent": "error",
+    "confidence": 0.0,
+    "reply": "Error code: 404 - {'error': {'message': 'The model `meta-llama/llama-4-scout-17b-16e-instruct` does not exist or you do not have access to it.', 'type': 'invalid_request_error', 'code': 'model_not_found'}}",
+    "decision": {
+      "action": "escalate",
+      "reason": "Error code: 404 - {'error': {'message': 'The model `meta-llama/llama-4-scout-17b-16e-instruct` does not exist or you do not have access to it.', 'type': 'invalid_request_error', 'code': 'model_not_found'}}"
+    }
+  },
+  {
+    "message": "I want to vote a song into oblivion so I never hear it ever again . Why is this not a feature.",
+    "intent": "error",
+    "confidence": 0.0,
+    "reply": "Error code: 404 - {'error': {'message': 'The model `meta-llama/llama-4-scout-17b-16e-instruct` does not exist or you do not have access to it.', 'type': 'invalid_request_error', 'code': 'model_not_found'}}",
+    "decision": {
+      "action": "escalate",
+      "reason": "Error code: 404 - {'error': {'message': 'The model `meta-llama/llama-4-scout-17b-16e-instruct` does not exist or you do not have access to it.', 'type': 'invalid_request_error', 'code': 'model_not_found'}}"
+    }
+  },
+  {
+    "message": "Turns out my account got hacked and upgraded to family... and 5 random accounts were using it for free \ud83e\udd26\u200d\u2642\ufe0f",
+    "intent": "error",
+    "confidence": 0.0,
+    "reply": "Error code: 404 - {'error': {'message': 'The model `meta-llama/llama-4-scout-17b-16e-instruct` does not exist or you do not have access to it.', 'type': 'invalid_request_error', 'code': 'model_not_found'}}",
+    "decision": {
+      "action": "escalate",
+      "reason": "Error code: 404 - {'error': {'message': 'The model `meta-llama/llama-4-scout-17b-16e-instruct` does not exist or you do not have access to it.', 'type': 'invalid_request_error', 'code': 'model_not_found'}}"
+    }
+  },
+  {
+    "message": "Got a mail from Spotify saying I won a 6 months prem subscription celebrating your 12th anniversary. This is a fraud, right?",
+    "intent": "error",
+    "confidence": 0.0,
+    "reply": "Error code: 404 - {'error': {'message': 'The model `meta-llama/llama-4-scout-17b-16e-instruct` does not exist or you do not have access to it.', 'type': 'invalid_request_error', 'code': 'model_not_found'}}",
+    "decision": {
+      "action": "escalate",
+      "reason": "Error code: 404 - {'error': {'message': 'The model `meta-llama/llama-4-scout-17b-16e-instruct` does not exist or you do not have access to it.', 'type': 'invalid_request_error', 'code': 'model_not_found'}}"
+    }
+  },
+  {
+    "message": "I went through this process. Not trying to be pushy but I have songs that need to be heard.",
+    "intent": "error",
+    "confidence": 0.0,
+    "reply": "Error code: 404 - {'error': {'message': 'The model `meta-llama/llama-4-scout-17b-16e-instruct` does not exist or you do not have access to it.', 'type': 'invalid_request_error', 'code': 'model_not_found'}}",
+    "decision": {
+      "action": "escalate",
+      "reason": "Error code: 404 - {'error': {'message': 'The model `meta-llama/llama-4-scout-17b-16e-instruct` does not exist or you do not have access to it.', 'type': 'invalid_request_error', 'code': 'model_not_found'}}"
+    }
+  },
+  {
+    "message": "I\u2019m trying to get premium 10m promo but I can\u2019t find the button. I\u2019m I hella high??",
+    "intent": "error",
+    "confidence": 0.0,
+    "reply": "Error code: 404 - {'error': {'message': 'The model `meta-llama/llama-4-scout-17b-16e-instruct` does not exist or you do not have access to it.', 'type': 'invalid_request_error', 'code': 'model_not_found'}}",
+    "decision": {
+      "action": "escalate",
+      "reason": "Error code: 404 - {'error': {'message': 'The model `meta-llama/llama-4-scout-17b-16e-instruct` does not exist or you do not have access to it.', 'type': 'invalid_request_error', 'code': 'model_not_found'}}"
+    }
+  },
+  {
+    "message": "Thank you!\ud83d\ude0aLots of #Roku users really love #Spotify but it's so frustrating that an important feature like playlists is missing atm!\ud83d\ude14#RokuUK",
+    "intent": "error",
+    "confidence": 0.0,
+    "reply": "Error code: 404 - {'error': {'message': 'The model `meta-llama/llama-4-scout-17b-16e-instruct` does not exist or you do not have access to it.', 'type': 'invalid_request_error', 'code': 'model_not_found'}}",
+    "decision": {
+      "action": "escalate",
+      "reason": "Error code: 404 - {'error': {'message': 'The model `meta-llama/llama-4-scout-17b-16e-instruct` does not exist or you do not have access to it.', 'type': 'invalid_request_error', 'code': 'model_not_found'}}"
+    }
+  },
+  {
+    "message": "is there no way to change the order of the songs though?",
+    "intent": "error",
+    "confidence": 0.0,
+    "reply": "Error code: 404 - {'error': {'message': 'The model `meta-llama/llama-4-scout-17b-16e-instruct` does not exist or you do not have access to it.', 'type': 'invalid_request_error', 'code': 'model_not_found'}}",
+    "decision": {
+      "action": "escalate",
+      "reason": "Error code: 404 - {'error': {'message': 'The model `meta-llama/llama-4-scout-17b-16e-instruct` does not exist or you do not have access to it.', 'type': 'invalid_request_error', 'code': 'model_not_found'}}"
+    }
+  },
+  {
+    "message": "haiii Spotify.. please help. Akun saya tidak bisa diakses, padahal akun tsb sudah saya daftarkan ke premium. Saya sudah masukkan username dan password yg benar tapi ditolak, saat akan reset password, email saya terdaftar di username lain. Gmn ya? #sedih",
+    "intent": "error",
+    "confidence": 0.0,
+    "reply": "Error code: 404 - {'error': {'message': 'The model `meta-llama/llama-4-scout-17b-16e-instruct` does not exist or you do not have access to it.', 'type': 'invalid_request_error', 'code': 'model_not_found'}}",
+    "decision": {
+      "action": "escalate",
+      "reason": "Error code: 404 - {'error': {'message': 'The model `meta-llama/llama-4-scout-17b-16e-instruct` does not exist or you do not have access to it.', 'type': 'invalid_request_error', 'code': 'model_not_found'}}"
+    }
+  }
+]

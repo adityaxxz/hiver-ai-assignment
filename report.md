@@ -28,33 +28,31 @@ A good support agent must (a) route messages correctly so humans aren't interrup
 
 | System | Accuracy | Macro-F1 |
 |--------|----------|----------|
-| Trivial baseline | — | — |
-| Simple baseline (TF-IDF + LR) | — | — |
-| LLM pipeline (Llama 4 Scout) | — | — |
+| Trivial baseline | 0.142 | 0.031 |
+| Simple baseline (TF-IDF + LR) | 0.375 | 0.306 |
+| LLM pipeline (120b) | 0.517 | 0.467 |
 
 **Escalation Decision**
 
 | System | Accuracy | False Auto-Handle | Unnecessary Escalate |
 |--------|----------|-------------------|----------------------|
-| Trivial (always escalate) | — | 0 (by design) | — |
-| Simple (rule-only) | — | — | — |
-| LLM pipeline (hybrid) | — | — | — |
+| Trivial (always escalate) | 0.408 | 0 | 71 |
+| Simple (rule-only) | 0.408 | 0 | 71 |
+| LLM pipeline (hybrid) | 0.800 | 15 | 9 |
 
 **Reply Quality (LLM Judge, avg 1–5)**
 
 | System | Grounded | Relevant | Tone |
 |--------|----------|----------|------|
-| Trivial (canned reply) | — | — | — |
-| Simple (verbatim retrieval) | — | — | — |
-| LLM pipeline | — | — | — |
+| Trivial (canned reply) | N/A | N/A | N/A |
+| Simple (verbatim retrieval) | 2.73 | 2.82 | 2.63 |
+| LLM pipeline | 3.78 | 3.81 | 3.53 |
 
-**Judge-vs-Human Agreement (30-example subset)**
+**Judge-vs-Human Agreement (14-example subset intersection)**
 
-| Dimension | Cohen's Kappa | Within-1 % |
-|-----------|---------------|------------|
-| Grounded | — | — |
-| Relevant | — | — |
-| Tone | — | — |
+- **grounded**: kappa=-0.273, within-1=100.0%
+- **relevant**: kappa=-0.185, within-1=78.6%
+- **tone**: kappa=0.013, within-1=64.3%
 
 ---
 
@@ -62,22 +60,23 @@ A good support agent must (a) route messages correctly so humans aren't interrup
 
 Top 5 failure modes (with real examples from the golden set evaluation):
 
-*(Populated after eval run)*
+1. **Intent ambiguity between `account_access` and `cancellation`**
+   Example: *"Hello. I want to cancel my premium subscription, but I deleted my Facebook a while ago and I am unable to log in."*
+   The true intent is `account_access` (they are blocked by login), but the LLM predicts `cancellation` because the word "cancel" strongly triggers the classifier. The root problem is access, not the subscription policy.
 
-1. **Intent ambiguity between `complaint_general` and `billing_subscription`**
-   Example: *"I'm furious, you charged me even after I cancelled"* — combines venting (complaint_general) with a billing event (billing_subscription). Classifier picks the dominant surface signal (often the emotion words) and can miss the actionable billing sub-intent.
+2. **Fuzzy boundaries on "Family Plan" issues (`billing_subscription` vs `account_access`)**
+   Example: *"I want to invite my wife to family plan but Something is wrong with the address"*
+   Adding people to a family plan is a subscription/billing feature, but "address mismatch" feels like an account data issue. The LLM predicts `account_access` while the human golden label was `billing_subscription`.
 
-2. **`other` as a catch-all absorbs edge cases**
-   Example: *"What are your support hours?"* — not playback, not billing, not account. Gets labeled `other` correctly but the draft reply is generic since retrieval finds no similar past case.
-
-3. **Retrieval mismatch on rare intents**
-   Example: `cancellation` queries — if the cleaned_pairs corpus has few cancellation threads, TF-IDF retrieval returns the wrong intent's top case, and the draft reply is grounded in irrelevant history.
+3. **Escalation False Negatives (Auto-handling PII issues)**
+   Example: *"I need help cancelling my account. I do not remember my email or password."*
+   The LLM incorrectly decided to auto-handle this (likely by just providing a generic "here's how to reset your password" link). It failed to reason that if the user doesn't remember their email, they cannot self-serve and a human agent needs to verify their identity.
 
 4. **Boilerplate stripping over-aggressively removes useful context**
    Some SpotifyCares replies contain a boilerplate opener but a useful resolution in the second sentence. The current filter (< 20 words + pattern match) can discard the whole reply, starving the retrieval corpus of real resolutions.
 
-5. **Low-volume intents (`praise`, `cancellation`) underperform on macro-F1**
-   With only ~25–35 golden examples per class, the LR simple baseline sees very few training examples for rare classes. The LLM classifier generalizes better here but its confidence calibration is uncertain (we never check calibration, only accuracy).
+5. **Low-volume intents (`praise`, `other`) underperform on macro-F1**
+   With only ~30 golden examples per class, the simple baseline sees very few training examples for rare classes. The LLM classifier generalizes better here, but its confidence calibration remains uncertain (we never check calibration, only raw accuracy).
 
 ---
 

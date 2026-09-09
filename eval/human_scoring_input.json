@@ -1,0 +1,182 @@
+[
+  {
+    "customer_message": "i want to sign up for premium but i cant login to my account on the app? I can sign in on internet but havin problems with the app?",
+    "brand_reply": "Hey! The cavalry's here. Can you DM us your account's username or email address? We'll take a look under the hood /JS",
+    "true_intent": "account_access",
+    "should_escalate": "escalate"
+  },
+  {
+    "customer_message": "id::93__credit_card__: My account was hacked/compromised. I’ve regained access and changed my password but I noticed there w",
+    "brand_reply": "Hey there! Looks like your tweet is incomplete. Can you resend that for us? We'll be here waiting /RB",
+    "true_intent": "account_access",
+    "should_escalate": "escalate"
+  },
+  {
+    "customer_message": "I do not receive an email from you guys when I request a reset password. Haven’t been able to use my premium account in days. Ive checked all email accounts and spam folders. No email.",
+    "brand_reply": "Hi Matt, help's arrived! Could you DM us your username and email address? We'll take a look backstage /JQ",
+    "true_intent": "account_access",
+    "should_escalate": "escalate"
+  },
+  {
+    "customer_message": "Hello. I want to cancel my premium subscription, but I deleted my Facebook a while ago and I am unable to log in. Please help!",
+    "brand_reply": "Hey Kimberly! Can you DM us your account's email address? We'll take a look backstage /SU",
+    "true_intent": "account_access",
+    "should_escalate": "escalate"
+  },
+  {
+    "customer_message": "I need help cancelling my account. I do not remember my email or password.",
+    "brand_reply": "Hi there! We'll continue helping out from here. Can you DM us any email addresses or usernames you might have used to create an account? We'll search under the hood 🔍 /NJ",
+    "true_intent": "account_access",
+    "should_escalate": "escalate"
+  },
+  {
+    "customer_message": "I cant login to my account, and someone changed the email to reset the password. is there a phone # to contact you guys?",
+    "brand_reply": "2: at > select Logging in > I can't log in to Spotify > I STILL NEED HELP /MG",
+    "true_intent": "account_access",
+    "should_escalate": "escalate"
+  },
+  {
+    "customer_message": "You guys having web player issues by any chance? Keeps making me login over and over.",
+    "brand_reply": "Hey! Don't worry, we're on it. Our developers are looking into this, and we'll keep everyone updated /DF",
+    "true_intent": "account_access",
+    "should_escalate": "escalate"
+  },
+  {
+    "customer_message": "hey someone has changed the email address and password of my account, can you help me out please",
+    "brand_reply": "Hey Adam, we're sorry to hear that! Can you DM us your account's username and email address? We'll take a look backstage /JX",
+    "true_intent": "account_access",
+    "should_escalate": "escalate"
+  },
+  {
+    "customer_message": "I’m locked out of my account 😟",
+    "brand_reply": "We see. Could you DM us your account's email address and username? We'll take a look backstage 🙂 /CG",
+    "true_intent": "account_access",
+    "should_escalate": "escalate"
+  },
+  {
+    "customer_message": "Not helpful. I found this twitter handle on the website. Whoever is getting in ie changing the password before we can. Changed email PW. Need more support or to stop paying for premium.",
+    "brand_reply": "We understand! Just to clarify, did you fill out the contact form? That will connect you with our Accounts Team. They'll help secure and restore your account. Keep us in the loop /JX",
+    "true_intent": "account_access",
+    "should_escalate": "escalate"
+  },
+  {
+    "customer_message": "I need help! My app isnt working. I let logged me out and when I hit the login button it doesn’t do anything.",
+    "brand_reply": "Hey Heather, help's here! Can you DM us your account's email address and username? We'll take a look backstage /MQ",
+    "true_intent": "account_access",
+    "should_escalate": "escalate"
+  },
+  {
+    "customer_message": "I cannot login to my Spotify premium account for over a week now and I need help logging back in. I can't even reset my pw.",
+    "brand_reply": "Hey there, help's here! Can you DM us your account's email address and username? We'll take a look backstage 🙂 /CG",
+    "true_intent": "account_access",
+    "should_escalate": "escalate"
+  },
+  {
+    "customer_message": "I don't know what my email address is but i know my username and need to cancel a subscription",
+    "brand_reply": "Hi Sophie! Could you send us a DM with that username? We'll do our best to help out /NJ",
+    "true_intent": "account_access",
+    "should_escalate": "escalate"
+  },
+  {
+    "customer_message": "someone logged into my account and changed the email address, now I can't even log in to take out my CC info. What can I do?",
+    "brand_reply": "Hey Michael, we’re sorry to hear that. Don't worry, you can follow the steps at for what to do next /RR",
+    "true_intent": "account_access",
+    "should_escalate": "escalate"
+  },
+  {
+    "customer_message": ". I am getting error code: 404 when I try to sign in to any app.",
+    "brand_reply": "Hi Ryan! Help's here. Can you DM us your account's username or email address, along with a screenshot of the error message you're getting? We'll check things backstage /MU",
+    "true_intent": "account_access",
+    "should_escalate": "escalate"
+  },
+  {
+    "customer_message": "Spotify username msolby. Spotify devotee. Can you help customer support solve my login problems. Days without music is no fun.",
+    "brand_reply": "Hey Marc, help's here! Could you send us a DM with your account's email address? We'll make sure to help you log back in to your account 🙂 /VA",
+    "true_intent": "account_access",
+    "should_escalate": "escalate"
+  },
+  {
+    "customer_message": "Hi, for some reason we are unable to log in to our spotify account. I have the username and password which wouldn't work so I sent a reset request ,but from some reason it has not been sent to the account linked with spotify?",
+    "brand_reply": "Hey there! Don't worry, we're here to help. Can you DM us your account's email address or username? We'll take a look backstage /MT",
+    "true_intent": "account_access",
+    "should_escalate": "escalate"
+  },
+  {
+    "customer_message": "uh yea can u let me change my username pls ?? terrible mistake i made back then",
+    "brand_reply": "Hey help's here! Can you DM us your account's email address? We'll take a look backstage /GK",
+    "true_intent": "account_access",
+    "should_escalate": "escalate"
+  },
+  {
+    "customer_message": "my friend just signed up and we learned that usernames are now system generated only, she has a 25 random character username",
+    "brand_reply": "Hey! The cavalry's here. Can you DM us her account's email address? We'll take a look under the hood /JS",
+    "true_intent": "account_access",
+    "should_escalate": "escalate"
+  },
+  {
+    "customer_message": "Trying to log in to the app through Facebook on my Samsung Galaxy S7 Edge, says Facebook error occurred, please try again. Tried the generate app passwords trick but when I enter the generated password it won't accept the details I give it.",
+    "brand_reply": "Hey Daniel! Can you DM us your account's username and email address? We'll take a look backstage /JL",
+    "true_intent": "account_access",
+    "should_escalate": "escalate"
+  },
+  {
+    "customer_message": "i cant login to my premium for family account ... my profile is showing as free for some reason",
+    "brand_reply": "Hey! Can you DM us your account's username and email address? We'll take a look behind the scenes /JL",
+    "true_intent": "account_access",
+    "should_escalate": "escalate"
+  },
+  {
+    "customer_message": "Email verification. I'm getting email for someone who entered the wrong email. With enough flags your email will be spam",
+    "brand_reply": "Hey there! Can you DM us the account's email address? We'll take a look under the hood /AN",
+    "true_intent": "account_access",
+    "should_escalate": "escalate"
+  },
+  {
+    "customer_message": "PS my username is 7852petegarrett",
+    "brand_reply": "Hi Pete! Can you send us a DM with the usernames or email addresses of the members you're trying to add? We'll take a look backstage /HR",
+    "true_intent": "account_access",
+    "should_escalate": "escalate"
+  },
+  {
+    "customer_message": "I am having trouble changing my password! There is an unknown email address on my account! Please help!!",
+    "brand_reply": "Hey! Sorry to hear that. Could you DM us your username or email address? We'll check things out backstage /Q",
+    "true_intent": "account_access",
+    "should_escalate": "escalate"
+  },
+  {
+    "customer_message": "someone’s hacked my account and apparently there’s no way for me to change my password! #crock #fixthis #givememumoneyback",
+    "brand_reply": "Hey Nichole! We’re sorry to hear that. We'd suggest checking out for what to do next /FR",
+    "true_intent": "account_access",
+    "should_escalate": "escalate"
+  },
+  {
+    "customer_message": "Voted for it, but I cannot stress enough how bad of a decision it is to ignore 2FA at this point in time. I hope they change their minds.",
+    "brand_reply": "Not to worry! We'll pass on your feedback. For anything else, we're just a tweet away /JP",
+    "true_intent": "account_access",
+    "should_escalate": "escalate"
+  },
+  {
+    "customer_message": "hai , mau nanya nih, akun spotify saya kok ga bisa login pas diluar negeri ya?? ada notifikasi kalau harus masukin lokasi gitu diwebsitenya.. bisa dibantu untuk penjelasannya ? thanks :)",
+    "brand_reply": "Hey Yudhy! We can help out in English via Twitter, but we also have Indonesian support via email at /FR",
+    "true_intent": "account_access",
+    "should_escalate": "escalate"
+  },
+  {
+    "customer_message": "Hi! I can't log in to my account to cancel it. Please help! My UN is ivette0327. I tried reseting PW. No luck.",
+    "brand_reply": "Hey Ivette! We have some important info to share. Can you send us a DM? /AR",
+    "true_intent": "account_access",
+    "should_escalate": "escalate"
+  },
+  {
+    "customer_message": "can’t login! Too many redirects error message",
+    "brand_reply": "Hey there, we're sorry to hear that! Can you DM us your account's email address and username? We'll take a look backstage /JX",
+    "true_intent": "account_access",
+    "should_escalate": "escalate"
+  },
+  {
+    "customer_message": "hi, my last fm won't work on my spotify mobile, it says wrong uname/password. While It works just fine on desktop. Can u help?",
+    "brand_reply": "Hey! Can you change your Last.fm password and give it another try? Let us know how you get on /YM",
+    "true_intent": "account_access",
+    "should_escalate": "escalate"
+  }
+]
