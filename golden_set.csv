@@ -1,0 +1,9 @@
+customer_message,true_intent,should_escalate,reply_checklist,human_grounded,human_relevant,human_tone
+"my spotify keeps crashing every time I try to open it on my iPhone","playback_technical","auto_handle","Acknowledge crash; suggest reinstall or clear cache; ask for iOS version",,, 
+"I was charged twice this month for premium and need a refund immediately","billing_subscription","escalate","Acknowledge double charge; explain refund process or direct to billing team; do not promise resolution timeline",,,
+"how do I cancel my Spotify Premium subscription","cancellation","escalate","Explain cancellation steps; confirm what happens to account after cancel; mention premium features lost",,,
+"I can't log into my account, it says my email doesn't exist","account_access","escalate","Acknowledge login issue; suggest password reset; escalate if reset fails",,,
+"how do I download songs for offline listening?","feature_question","auto_handle","Explain download steps; mention premium requirement; link to help page",,,
+"the new Spotify UI update is absolutely terrible and unusable","complaint_general","auto_handle","Acknowledge frustration; thank for feedback; mention feedback goes to product team; no false promises",,,
+"love the new discover weekly feature! amazing job","praise","auto_handle","Acknowledge positivity; thank customer; keep it brief",,,
+"what are your customer support hours","other","auto_handle","State available support hours or direct to help center",,,

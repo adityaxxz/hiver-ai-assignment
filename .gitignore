@@ -1,0 +1,42 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+.env
+
+# Data - raw CSV is gitignored (user drops it here)
+data/raw/
+*.csv.gz
+
+# Cleaned data stays (it's small enough, or remove if too large)
+# data/cleaned_pairs.parquet
+
+# OS
+.DS_Store
+Thumbs.db
+
+# IDE
+.idea/
+.vscode/
+
+PROJECT_CONTEXT.md
+AGENTS.md
+Hiver SDE Intern Assignment.md
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
